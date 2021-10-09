@@ -1,0 +1,31 @@
+{
+  "name": "doc-generation",
+  "version": "0.0.1",
+  "description": "Service for generating documents",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "start:dev": "nodemon ./src/index.js"
+  },
+  "author": "Nikita Chursin (@nchursin)",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "chai-string": "^1.5.0",
+    "eslint": "^7.32.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.13",
+    "sinon": "^10.0.0",
+    "sinon-chai": "^3.7.0"
+  },
+  "dependencies": {
+    "docxtemplater": "^3.25.4",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "pizzip": "^3.1.1",
+    "ramda": "^0.27.1",
+    "winston": "^3.3.3"
+  }
+}
