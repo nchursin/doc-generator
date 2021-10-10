@@ -1,9 +1,10 @@
-const express = require('express')
-const app = express()
- 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
+const express = require("express");
+const router = require("./api/router");
+const app = express();
 
-console.log('Starting server on port 3000')
-app.listen(3000)
+app.use(express.json());
+
+router(app);
+
+console.log("Starting server on port 3000");
+app.listen(3000);
