@@ -1,10 +1,9 @@
 const templates = require("./routes/templates");
-const config = require("../config");
 
-const router = (app) => {
-  app.get("/templates", handleRequest(templates.get));
+const router = (app, config) => {
+  app.get("/templates", handleRequest(config, templates.get));
 };
 
-const handleRequest = (handler) => async (req, res) =>
+const handleRequest = (config, handler) => async (req, res) =>
   res.send(await handler(config.templatesPath));
 module.exports = router;

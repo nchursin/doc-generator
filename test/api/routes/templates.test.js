@@ -22,7 +22,7 @@ const templateFolderPath = path.resolve(
   "templates"
 );
 
-describe("/templates", () => {
+describe("'Get templates' handler", () => {
   it("returns list of templates", async () => {
     (await fs.lstat(templateFolderPath)).isDirectory().should.be.true;
     const templates = map(
@@ -34,14 +34,5 @@ describe("/templates", () => {
 
   it("throws if folder path is empty", async () => {
     expect(() => getTemplates("")).to.throw("Folder path is not specified");
-  });
-
-  describe("isNotNilOrEmpty", () => {
-    it("should work", () => {
-      expect(notIsNilOrEmpty("")).to.be.false;
-      expect(notIsNilOrEmpty()).to.be.false;
-      expect(notIsNilOrEmpty(null)).to.be.false;
-      expect(notIsNilOrEmpty("ewerw")).to.be.true;
-    });
   });
 });
