@@ -6,8 +6,6 @@ const {
   readTemplate,
 } = require("../../src/generation/findTemplate");
 
-const { todo } = test;
-
 const templatesPath = path.resolve(__dirname, "..", "data", "templates");
 
 describe("Template finder", () => {
