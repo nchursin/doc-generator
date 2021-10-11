@@ -15,7 +15,7 @@ const docRender = curry((params, doc) => {
 const generateFromTemplater = (doc) =>
   doc.getZip().generate({ type: "nodebuffer" });
 
-const generateDocument = (template, params) => {
+const generateDocument = curry((params, template) => {
   const parametrizedDocRender = docRender(params);
   return compose(
     generateFromTemplater,
@@ -23,7 +23,7 @@ const generateDocument = (template, params) => {
     doc,
     zip
   )(template);
-};
+});
 
 module.exports = {
   generateDocument,

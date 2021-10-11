@@ -28,8 +28,8 @@ describe("Document generator", () => {
     doc.render(params);
     const expected = doc.getZip().generate({ type: "nodebuffer" });
     const actual = await generateDocument(
-      await readTemplate(templatesPath, templateName),
-      params
+      params,
+      await readTemplate(templatesPath, templateName)
     );
     expect(actual).to.be.deep.equal(expected);
   });
