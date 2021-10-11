@@ -35,7 +35,7 @@ TEMPLATE_PATH=./doc-templates
 curl "http://localhost:3000/templates"
 
 ## Generate document
-curl -X "POST" "http://localhost:3000/generate/template_name.docx" \
+curl -X "PUT" "http://localhost:3000/generate/template_name.docx" \
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'{
   "includeText": false,

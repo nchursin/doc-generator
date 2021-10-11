@@ -5,7 +5,6 @@ const chaiExclude = require("chai-exclude");
 const { generateDocument } = require("../../src/generation/generateDocument");
 const PizZip = require("pizzip");
 const Templater = require("docxtemplater");
-const { todo } = test;
 const { expect } = chai;
 
 chai.use(chaiExclude);
