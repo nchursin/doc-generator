@@ -14,6 +14,10 @@ npm run docker:image && npm run start:docker
 
 ## Usage
 
+### Template engine
+
+[See here](https://docxtemplater.com/docs/tag-types/)
+
 ### Environment config
 
 ```bash
