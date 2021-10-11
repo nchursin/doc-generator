@@ -3,7 +3,7 @@ const generate = require("./routes/generate");
 
 const router = (app, config) => {
   app.get("/templates", handleRequest(config, templates.get));
-  app.put("/generate/:templateName", generate.post(config));
+  app.put("/generate/:templateName", generate.put(config));
 };
 
 const handleRequest = (config, handler) => async (req, res) =>

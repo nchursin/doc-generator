@@ -9,5 +9,5 @@ const generate = curry(async (config, req, res) => {
 });
 
 module.exports = {
-  post: generate,
+  put: generate,
 };
