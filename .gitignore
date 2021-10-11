@@ -1,3 +1,5 @@
 node_modules/
 doc-templates/
 TODO
+result.docx
+*.swp
