@@ -6,7 +6,10 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "start:dev": "nodemon ./src/index.js"
+    "docker:image": "docker build . -t nchursin/doc-generator",
+    "start:dev": "nodemon ./src/index.js",
+    "start:docker": "docker-compose up -d",
+    "start:prod": "node ./src/index.js"
   },
   "author": "Nikita Chursin (@nchursin)",
   "license": "Apache-2.0",

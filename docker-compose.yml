@@ -1,0 +1,7 @@
+version: "3.9" # optional since v1.27.0
+
+services:
+  careers-bot:
+    image: nchursin/doc-generator
+    ports:
+      - 8080:3000
