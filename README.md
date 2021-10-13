@@ -9,7 +9,7 @@ This is a simple service to generate documents by a template.
 ```bash
 makedir doc-templates
 # put templates in doc-templates dir
-npm run docker:image && npm run start:docker
+npm run docker
 ```
 
 ## Usage

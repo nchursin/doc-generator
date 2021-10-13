@@ -9,6 +9,7 @@
     "docker:image": "docker build . -t nchursin/doc-generator",
     "start:dev": "nodemon ./src/index.js",
     "start:docker": "docker-compose up -d",
+    "docker": "npm run docker:image && npm run start:docker",
     "start:prod": "node ./src/index.js"
   },
   "author": "Nikita Chursin (@nchursin)",
