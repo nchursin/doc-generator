@@ -2,7 +2,11 @@ const fs = require("fs");
 const path = require("path");
 require("dotenv").config();
 
+const env = process.env.NODE_ENV || "production";
+console.log("Environment: ", env);
 const config = {
+  env,
+  logLevel: "development" === env ? "silly" : "warn",
   port: process.env.PORT || 3000,
   templatesPath:
     process.env.TEMPLATE_PATH || path.resolve(__dirname, "..", "doc-templates"),
