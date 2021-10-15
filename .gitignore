@@ -3,3 +3,4 @@ doc-templates/
 TODO
 result.docx
 *.swp
+.DS_Store
