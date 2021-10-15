@@ -27,10 +27,6 @@ const readTemplatesFromFolder = ifElse(
 );
 
 const getTemplates = compose(
-  (data) => {
-    console.log("data >> ", data);
-    return data;
-  },
   composeWith(andThen, [wrapFiles, readTemplatesFromFolder]),
   prop("templatesPath")
 );

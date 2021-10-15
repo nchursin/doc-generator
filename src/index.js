@@ -8,8 +8,9 @@ const app = express();
 app.use(express.json());
 app.use(parseMp);
 
+middleware.pre(app);
 router(app, config);
-middleware(app);
+middleware.post(app);
 
 console.log("Starting server on port 3000");
 app.listen(3000);
