@@ -42,4 +42,12 @@ curl -X "PUT" "http://localhost:3000/generate/template_name.docx" \
   "first_name": "John",
   "last_name": "Doe"
 }' -o result.docx
+
+## Generate document from provided docx file
+## The following exmaple DOES NOT work AS IS. You need to provide a docx template in the template part of the req
+curl -X "POST" "http://localhost:3000/generate" \
+     -H 'Content-Type: multipart/form-data; charset=utf-8; boundary=__X_PAW_BOUNDARY__' \
+     -F "template=" \
+     -F "values={\"first_name\":\"John\",\"last_name\":\"Doe\",\"includeText\":false}"
+
 ```
