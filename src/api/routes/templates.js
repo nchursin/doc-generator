@@ -10,6 +10,7 @@ const {
   or,
   isNil,
   andThen,
+  prop,
 } = require("ramda");
 
 const throwsError = (message) => () => {
@@ -25,7 +26,14 @@ const readTemplatesFromFolder = ifElse(
   throwsError("Folder path is not specified")
 );
 
-const getTemplates = composeWith(andThen, [wrapFiles, readTemplatesFromFolder]);
+const getTemplates = compose(
+  (data) => {
+    console.log("data >> ", data);
+    return data;
+  },
+  composeWith(andThen, [wrapFiles, readTemplatesFromFolder]),
+  prop("templatesPath")
+);
 
 module.exports = {
   get: getTemplates,
