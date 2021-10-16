@@ -5,10 +5,6 @@ const { generateDocument } = require("../../generation/generateDocument");
 const generate = curry(async (config, req) => {
   const generateDoc = generateDocument(req.body);
   const templateName = req.params.templateName;
-  console.log(
-    "await readTemplate(config.templatesPath, templateName) >> ",
-    await readTemplate(config.templatesPath, templateName)
-  );
   return generateDoc(await readTemplate(config.templatesPath, templateName));
 });
 
