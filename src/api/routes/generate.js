@@ -1,14 +1,11 @@
 const { curry, toString, reduceBy, prop } = require("ramda");
+const HttpError = require("../httpError");
 const { readTemplate } = require("../../generation/findTemplate");
 const { generateDocument } = require("../../generation/generateDocument");
 
 const generate = curry(async (config, req) => {
   const generateDoc = generateDocument(req.body);
   const templateName = req.params.templateName;
-  console.log(
-    "await readTemplate(config.templatesPath, templateName) >> ",
-    await readTemplate(config.templatesPath, templateName)
-  );
   return generateDoc(await readTemplate(config.templatesPath, templateName));
 });
 
@@ -19,11 +16,25 @@ const generateFromRequest = curry(async (config, req) => {
     prop("name"),
     req.formData
   );
-  const generateDoc = generateDocument(
-    JSON.parse(toString(formDataByName.values.data))
-  );
+  validateFormData(formDataByName);
+  let values;
+  try {
+    values = JSON.parse(toString(formDataByName.values.data));
+  } catch (error) {
+    throw new HttpError(400, error);
+  }
+  const generateDoc = generateDocument(values);
   return generateDoc(formDataByName.template.data);
 });
+
+const validateFormData = (formData) => {
+  if (!formData.template) {
+    throw new HttpError(400, "template is missing from request");
+  }
+  if (!formData.values) {
+    throw new HttpError(400, "values are missing from request");
+  }
+};
 
 module.exports = {
   put: generate,
