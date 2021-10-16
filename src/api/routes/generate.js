@@ -17,15 +17,22 @@ const generateFromRequest = curry(async (config, req) => {
     req.formData
   );
   validateFormData(formDataByName);
-  const generateDoc = generateDocument(
-    JSON.parse(toString(formDataByName.values.data))
-  );
+  let values;
+  try {
+    values = JSON.parse(toString(formDataByName.values.data));
+  } catch (error) {
+    throw new HttpError(400, error);
+  }
+  const generateDoc = generateDocument(values);
   return generateDoc(formDataByName.template.data);
 });
 
 const validateFormData = (formData) => {
   if (!formData.template) {
     throw new HttpError(400, "template is missing from request");
+  }
+  if (!formData.values) {
+    throw new HttpError(400, "values are missing from request");
   }
 };
 
